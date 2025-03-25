@@ -47,27 +47,36 @@ This project implements a **fully serverless data management system** that allow
 ## 🚀 **Deployment Steps**  
 
 ### **1. DynamoDB Table Setup**  
-**Objective**: Create a highly available database table for user data storage.  
+Let create a highly available database table for user data storage.  
 1. Navigate to **DynamoDB Console** → **Create Table**  
 2. Configure with:  
-   - **Table name**: `UserDataTable`  
-   - **Partition key**: `id` (String)  
-   - **Sort key**: `created_at` (Number) *[Optional for time-based queries]*  
-3. Enable **Default settings** with AWS managed encryption  
+   - **Table name**: `PskTable`  
+   - **Partition key**: `studentid` (as a **String**)
+   - Leave default settings for other configuration.
+   - After Deployment, click on **PskTable** and click on **explore table items** to view every item we created or added. Initially it will be empty table as we known.
 
-![DynamoDB Config](assets/dynamodb-setup.png)  
+!0 
 
 ---
 
 ### **2. Lambda Functions Deployment**  
-**Objective**: Deploy serverless functions for data processing.  
-1. In **Lambda Console**, create two functions:  
-   - `getDataFunction` (Python 3.9) for data retrieval  
-   - `postDataFunction` (Python 3.9) for data submission  
-2. Attach IAM roles with least-privilege permissions:  
-   - DynamoDB read access for GET function  
-   - DynamoDB write access for POST function  
+We gonna deploy serverless functions for data processing with Python language but don't worry I already provided the code just for **You**.  
+  
+1. **Create Function**:  
+   - Name: `GetPsk` | Runtime: **Python 3.13** | Architecture: **x86_64**  
+   - Permissions: **Create new IAM role** from basic Lambda template
 
+2. **Add Inline Policy**:  
+   - Go to IAM → Roles → Select `GetPsk-role-XXXX`  
+   - Create inline policy with:  
+   - Click **Deploy**
+
+3. **PostPsk Function Setup**  
+Repeat with these changes:  
+- Function name: `PostPsk`  
+!1
+!2
+!3
 ---
 
 ### **3. API Gateway Configuration**  
