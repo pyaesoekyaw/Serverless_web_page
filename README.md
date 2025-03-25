@@ -8,16 +8,6 @@ Here’s a professional **GitHub README.md** in the exact style of your referenc
 
 ---
 
-## 📌 **Table of Contents**  
-1. [Project Overview](#-project-overview)  
-2. [Key Features](#-key-features)  
-3. [AWS Services Used](#-aws-services-used)  
-4. [Deployment Steps](#-deployment-steps)  
-5. [Testing & Validation](#-testing--validation)  
-6. [Folder Structure](#-folder-structure)  
-7. [FAQs](#-faqs)  
-
----
 
 ## 🌟 **Project Overview**  
 This project implements a **fully serverless data management system** that allows users to securely submit and retrieve data through a web interface. Designed for scalability and cost-efficiency, it leverages AWS serverless technologies to eliminate infrastructure management overhead while ensuring high availability and automatic scaling under variable workloads.  
@@ -30,17 +20,6 @@ This project implements a **fully serverless data management system** that allow
 - **Scalable Storage**: DynamoDB provides single-digit millisecond latency at any scale  
 - **CDN Accelerated**: Global content delivery via CloudFront edge locations  
 - **CORS Enabled**: Pre-configured for cross-origin access from web applications  
-
----
-
-## ⚙️ **AWS Services Used**  
-| Service | Purpose | Configuration Notes |  
-|---------|---------|---------------------|  
-| **Amazon S3** | Hosts static website files | Versioning disabled, public access blocked |  
-| **AWS Lambda** | Processes GET/POST requests | Python 3.9, 128MB memory |  
-| **API Gateway** | REST API endpoint management | Edge-optimized, CORS enabled |  
-| **DynamoDB** | NoSQL database for user data | On-demand capacity mode |  
-| **CloudFront** | Secure content delivery | HTTPS enforcement, S3 OAI integration |  
 
 ---
 
@@ -63,30 +42,33 @@ Let create a highly available database table for user data storage.
 We gonna deploy serverless functions for data processing with Python language but don't worry I already provided the code just for **You**.  
   
 1. **Create Function**:  
-   - Name: `GetPsk` | Runtime: **Python 3.13** | Architecture: **x86_64**  
-   - Permissions: **Create new IAM role** from basic Lambda template
+   - Namethe function : `GetPsk` 
+   - Runtime should be : **Python 3.13**    
+   - Change default execution setting : **Create new IAM role** 
 
-2. **Add Inline Policy**:  
+2. **Add Inline Policy to our new IAM role**:  
    - Go to IAM → Roles → Select `GetPsk-role-XXXX`  
-   - Create inline policy with:
+   - Create inline policy with json format.
+   - The code is in my repository.(code)!
+   - save the code and click **Deploy**.
 !1
 !2  
-   - Click **Deploy**
    - Create new test event and click on **Test**, you answer should be like my output.
    - It means there is no data inside the table.
 !4
 
 3. **PostPsk Function Setup**  
 Repeat with these changes:  
-- Name: `PostPsk` | Runtime: **Python 3.13** | Architecture: **x86_64**  
-   - Permissions: **Create new IAM role** from basic Lambda template
+ - Namethe function : `GetPsk` 
+   - Runtime should be : **Python 3.13**    
+   - Change default execution setting : **Create new IAM role** 
 
 2. **Add Inline Policy**:  
    - Go to IAM → Roles → Select `PostPsk-role-XXXX`
 !5
-   - Create inline policy with:
-   - Click **Deploy**
-   - Create new test event and named it and add simple item and save it.
+   - Create inline policy with json format.
+   - The code is in my repository.(code)!
+   - save the code and click **Deploy**.
 !6
    - click on **Test**, you answer should be like my output.
    - Now, the output only show completion but you can view within DynamoDB **explore table items**.
@@ -114,18 +96,25 @@ The next step is to create secure API endpoints with CORS support.
 ---
 
 ### **4. Frontend Hosting (S3)**  
-**Objective**: Deploy static website with secure access controls.  
-1. Create S3 bucket: `your-app-frontend`  
-2. Enable **Static Website Hosting** in properties  
-3. Upload:  
+We are now on board, let deploy static website with secure access controls.  
+1. Create S3 bucket with the name : `your-psk-buddy` and uncheck the **block public access** and check the **acknowledge** because we are going to access for verifying Webpage functionality.
+!12 
+3. Under the properties tab, enable **Static Website Hosting** with `index.html`.
+4. Under the permission tab, edit the bucket policy for all user access.[code]!
+   - don't forget to change the bucket url and `/*`because we are under the object level of the bucket.
+!13
+5. Before uploading JS file , you need to update the invoke Url from API Gateway.
+   - save the javascript after you update the file.
+!14
+7. click on **Upload** and **add files**.
    - `index.html`  
    - JavaScript files (with updated API endpoint)  
-4. Apply bucket policy restricting access to CloudFront only  
+8. Apply bucket policy restricting access to CloudFront only.  
 
 ---
 
 ### **5. CloudFront Distribution**  
-**Objective**: Enable HTTPS and global content delivery.  
+Enable HTTPS and global content delivery.  
 1. Create distribution with S3 as origin  
 2. Critical settings:  
    - **Origin Access Identity (OAI)**: Create new  
