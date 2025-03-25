@@ -68,28 +68,48 @@ We gonna deploy serverless functions for data processing with Python language bu
 
 2. **Add Inline Policy**:  
    - Go to IAM → Roles → Select `GetPsk-role-XXXX`  
-   - Create inline policy with:  
+   - Create inline policy with:
+!1
+!2  
    - Click **Deploy**
+   - Create new test event and click on **Test**, you answer should be like my output.
+   - It means there is no data inside the table.
+!4
 
 3. **PostPsk Function Setup**  
 Repeat with these changes:  
-- Function name: `PostPsk`  
-!1
-!2
-!3
+- Name: `PostPsk` | Runtime: **Python 3.13** | Architecture: **x86_64**  
+   - Permissions: **Create new IAM role** from basic Lambda template
+
+2. **Add Inline Policy**:  
+   - Go to IAM → Roles → Select `PostPsk-role-XXXX`
+!5
+   - Create inline policy with:
+   - Click **Deploy**
+   - Create new test event and named it and add simple item and save it.
+!6
+   - click on **Test**, you answer should be like my output.
+   - Now, the output only show completion but you can view within DynamoDB **explore table items**.
+!7
+
 ---
 
 ### **3. API Gateway Configuration**  
-**Objective**: Create secure API endpoints with CORS support.  
+The next step is to create secure API endpoints with CORS support.  
 1. Create **REST API** (Edge-optimized) named `DataAPI`  
-2. Under `/data` resource:  
-   - Create `GET` method → Integrate with `getDataFunction`  
-   - Create `POST` method → Integrate with `postDataFunction`  
-3. **Enable CORS** with:  
-   - Allowed origins: `*` *(Restrict for production)*  
-   - Allowed methods: `GET, POST, OPTIONS`  
+2. Under `/data` resource , click on **create method**,  
+   - Choose method type as `GET` → choose the function named `XXX:GetPsk`and **create method**.
+!8 
+   - Choose method type as `GET` → choose the function named `XXX:PostPsk` and **create method**.
 
-![API Gateway](assets/api-gateway.png)  
+3. **Enable CORS**
+   - Click on **enable CORS**.
+!9
+   - Check the **GET** and **POST**.
+!10
+   - May be you notice there is an **Option** method appear between two method.
+   - Finally click on **Deploy API** and pick **new stage** and name something and deploy it. 
+!11
 
 ---
 
