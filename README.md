@@ -115,13 +115,16 @@ We are now on board, let deploy static website with secure access controls.
 
 ### **5. CloudFront Distribution**  
 Enable HTTPS and global content delivery.  
-1. Create distribution with S3 as origin  
-2. Critical settings:  
+1. Create distribution with S3 as origin
+!17 18 19
+   
+3. Critical settings:  
    - **Origin Access Identity (OAI)**: Create new  
    - **Viewer Protocol Policy**: Redirect HTTP to HTTPS  
    - **Default Root Object**: `index.html`  
-3. Wait 15-20 minutes for global deployment  
-
+4. Wait 15-20 minutes for global deployment
+   copy policy and attach s3 
+!20
 ![CloudFront](assets/cloudfront-distro.png)  
 
 ---
