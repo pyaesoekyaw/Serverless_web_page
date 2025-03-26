@@ -53,7 +53,10 @@ We gonna deploy serverless functions for data processing with Python language bu
    - Create inline policy with json format.
    - The code is in my repository.(code)!
    - **Save** the rule and navigate back to the function.
-   - click on **Deploy** and wait a little moment.
+   - Under **Code** tab, apply the python code for scan the data in DynamoDB table.
+   - Don't forget to update your region and Table name that you created.
+     
+   - Click on **Deploy** and wait a little moment.
    - Create new **test event** with your desire name and you don't need to add any parameters in the query because we are going to Get the data from table.
    - Click on **Test**, you answer should be like my output.
    - It means there is no data inside the table.
