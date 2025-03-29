@@ -160,6 +160,6 @@ To enable HTTPS and global content delivery service, we are going to need Cloudf
 ![image](https://github.com/pyaesoekyaw/Serverless_web_page/blob/main/images/0021.png)
 ![image](https://github.com/pyaesoekyaw/Serverless_web_page/blob/main/images/0022.png)
 
-- I am pretty sure you got this. Congratulation and now we are on the state of [cleaning up the resource].
+- I am pretty sure you got this. Congratulation and now we are on the state of [cleaning up the resource](https://github.com/pyaesoekyaw/dynamodb-quicksigth-project/blob/main/project_setup_%26_cleanup/cleanup_instruction.md).
   
 ---
