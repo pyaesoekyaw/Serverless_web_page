@@ -2,7 +2,7 @@
 
 Hi there! 👋 I'm **Mg Pyae Soe Kyaw**, a cloud enthusiast exploring AWS serverless architectures. This project demonstrates a complete **serverless data pipeline** that collects, processes, and visualizes data using cutting-edge AWS services.  
 
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=flat&logo=linkedin)](https://www.linkedin.com/in/pyae-soe-kyaw-2a9962302/)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=flat&logo=linkedin)](https://www.linkedin.com/in/pyae-soe-kyaw-2a9962302/) <br>
 [![GitHub](https://img.shields.io/badge/GitHub-Repo-lightgrey?style=flat&logo=github)](https://github.com/pyaesoekyaw)
 
 ---
