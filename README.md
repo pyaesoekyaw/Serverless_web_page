@@ -49,9 +49,9 @@ We gonna deploy serverless functions for data processing with Python language bu
    - Go to IAM → Roles → Select `GetPsk-role-XXXX`. 
    - Under Permission tab, **add permission**.
    - **Create inline policy** with json format.
-   - The code is in my repository.![policy](
+   - The [code](https://github.com/pyaesoekyaw/Serverless_web_page/blob/main/policies/iam_policy_for_GET.txt) is in my repository.
    - **Save** the rule and go back to the function.
-   - Under **Code** tab, apply the python code for scan the data in DynamoDB table.
+   - Under **Code** tab, apply the [python code](https://github.com/pyaesoekyaw/Serverless_web_page/blob/main/function_codes/get_function.txt) for scan the data in DynamoDB table.
    - Don't forget to update your region and Table name that you created.
    ![image](https://github.com/pyaesoekyaw/Serverless_web_page/blob/main/images/0003.png)
    - Click on **Deploy** and wait a little moment.
@@ -72,9 +72,9 @@ Repeat with these changes:
      
 ![image](https://github.com/pyaesoekyaw/Serverless_web_page/blob/main/images/0005.png)
    
-   - The code is in my repository.(code)!
+   - The [code](https://github.com/pyaesoekyaw/Serverless_web_page/blob/main/policies/iam_policy_for_POST.txt) is in my repository.
    - **Save** the rule and go back to the function.
-   - Under **Code** tab, apply the python code for insert the data in DynamoDB table.
+   - Under **Code** tab, apply the [python code](https://github.com/pyaesoekyaw/Serverless_web_page/blob/main/function_codes/post_function.txt) for insert the data in DynamoDB table.
    - Don't forget to update Table name that you created.
    - Save the code and click **Deploy**.
    - Create new **test event** with your desired name and you need to add parameters in the **Event JSON** to add some data for sample.
@@ -114,16 +114,16 @@ We are now on board, let deploy static website with secure access controls.
 1. Create S3 bucket with the name : `your-psk-buddy` and uncheck the **block public access** and check the **acknowledgement** because we are going to access for verifying Webpage availability.
  ![image](https://github.com/pyaesoekyaw/Serverless_web_page/blob/main/images/0012.png)
  - Under the properties tab, enable **Static Website Hosting** with `index.html`.
- - Under the permission tab, edit **the bucket policy** for all user access.![code](
+ - Under the permission tab, edit **the bucket policy** with this [policy](https://github.com/pyaesoekyaw/Serverless_web_page/blob/main/policies/Initial_S3_policy.txt) for all user access.
  - Don't forget to change the **Bucket ARN** and `/*`because we are under the object level under the bucket.
 ![image](https://github.com/pyaesoekyaw/Serverless_web_page/blob/main/images/0013.png)
 2. Before uploading JS file , you need to update the **Invoke Url** from API Gateway.
 ![image](https://github.com/pyaesoekyaw/Serverless_web_page/blob/main/images/0014.png)
 ![image](https://github.com/pyaesoekyaw/Serverless_web_page/blob/main/images/0023.png)
  - Save the javascript after you update the file.
- - Click on **Upload** and **add files** to store html and javascript file into S3 bucket.
+ - Click on **Upload** and **add files** to store [html and javascript file](https://github.com/pyaesoekyaw/Serverless_web_page/tree/main/code_for_webpage) into S3 bucket.
  - `index.html`  
- - `JavaScript` files (with updated API endpoint) and click on **Upload**.
+ - `scripts.js` files (with updated API endpoint) and click on **Upload**.
  - Test the S3 Url from **Static Website Hosting**. You will see the same out like mine.
  - You will see this is not secure because the traffic is sending over plaintext with HTTP protocol.
 ![image](https://github.com/pyaesoekyaw/Serverless_web_page/blob/main/images/0015.png)
