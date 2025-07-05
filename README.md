@@ -5,6 +5,9 @@ Hi there! 👋 I'm **Mg Pyae Soe Kyaw**, a cloud enthusiast exploring AWS server
 [![LinkedIn](https://img.shields.io/badge/LinkedIn-Connect-blue?style=flat&logo=linkedin)](https://www.linkedin.com/in/pyae-soe-kyaw-2a9962302/) <br>
 [![GitHub](https://img.shields.io/badge/GitHub-Repo-lightgrey?style=flat&logo=github)](https://github.com/pyaesoekyaw)
 
+I know you get a little trouble while setting up this project.So i gonna give u a live action video, Enjoy the flow.
+https://www.youtube.com/watch?v=usePk_-Kqxw&t=34s
+
 ---
 
 ## 🌐 Overview
